@@ -1,5 +1,5 @@
 # C#
-### Basics
+## Basics
 * decimal 不是基本类型
 * bool和整数不能隐式转换
 * 'a' 是char类型, “a”是string类型
