@@ -1,7 +1,7 @@
 ﻿using System;
 using static System.Console;
 
-namespace Class
+namespace ClassAndType
 {
     class Program
     {
