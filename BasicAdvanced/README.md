@@ -27,7 +27,7 @@
    1. `@`是使用关键字为标识符的方法，比如：`@abstract`
    2. C#常量最好不要全部是大写，很难阅读。还是Pascal
    3. 私有常常是下划线加小驼峰 `private int _subscribed`
-## Class
+## ClassAndType
 * 属性
    1. .net 4.0后精简为 `public int Age {get; set;}`
    2. 初始值为 `public int Age {get; set;} = 50;`
