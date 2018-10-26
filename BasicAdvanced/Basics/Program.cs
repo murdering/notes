@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define Community
+using System;
 using static System.Console; // C# 6 新特性
 
 namespace Basics
@@ -9,13 +10,21 @@ namespace Basics
         static void Main(string[] args)
         {
             //int j = 10;
+
             WriteLine("Hello World! {0}", j);
+
+            // 使用关键字
+            var @abstract = "abstract";
+            WriteLine($"Hello key word! { @abstract}");
 
             // String
             StringFunction();
 
-            //Enum
+            // Enum
             EnumFunction();
+
+            // PreProcess
+            PreProcessFunction();
 
             ReadLine();
         }
@@ -58,6 +67,18 @@ namespace Basics
             WriteLine(time2);
             WriteLine((int)time2);
             WriteLine(time2.ToString());
+        }
+
+        public static void PreProcessFunction() {
+#if Community
+#warning "You are getting one Community Wanring"
+            WriteLine("this is for Community!");
+
+#else
+            WriteLine("this is for NORMAL!");
+#error "You are getting one Community Error"
+#endif
+
         }
     }
 
