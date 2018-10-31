@@ -71,3 +71,82 @@
       + 没有修饰符，因为总是在类加载时调用
       + 只能访问类的静态成员
       + 和无参数的实例构造函数不冲突
+   5. 只读成员
+      + 带有`readonly`修饰符的字段只能在构造函数中分配值
+      + 作为类成员时，需要用`static`修饰符
+      + C# 6 自动实现的只读属性 `public string Id { get;} = Guid.NewGuid().ToString()`
+      + readonly和const的区别：
+        + const是默认静态的，readonly需要用static修饰符; 
+        + const 必须在声明时给与值，readonly 可以在构造函数中赋值；
+        + const是静态成员，readonly是实例成员;
+    6. 匿名类型 
+        + 编译器会伪造一个类名，只有编译器使用它。对新对象使用反射，不会得到一致的结果。
+        ```C#
+        var captiain = new {
+            FirstName = "Leo",
+            LastName = "Dai"
+        }
+        ```
+    7. 结构体
+        + 值类型
+        + 不支持继承
+        + 默认构造函数会初始化成员为其默认值
+        + 默认构造函数总是隐式给出，即使提供了其他参数的构造函数
+        + 自定义构造函数里必须给所有成员初始值
+        + C# 6才可以实现默认构造函数，之前是不行的
+        + 如果使用属性, 对象就必须用new
+        + 和类的区别：
+  
+        | 结构体 | 类 |
+        | ------ | ------ |
+        | 值类型 | 引用类型 |
+        | 可以不用new新建，new只是调用构造函数来初始化所有字段 |  必须用new来分配堆内存 |
+        | 不能继承 | 能继承 |
+        | 默认构造函数总是给出 | 如过声明了构造函数，就不会给出默认构造函数 |
+    8. 可空类型
+        + `int? x = null`
+        + `int y = x ?? -1` 如果x为空给-1，否则提取x的值
+    9. 枚举
+        + 值类型
+        + 默认情况下，类型是int。可以变为其他整数类型(byte, short, int, long)
+        ```C#
+        public enum Color : short
+        {
+            Red = 1,
+            Green = 2,
+            Blue = 3
+        }
+        ```
+    10. 部分类 `partial class`
+        + 可以在一个部分类中声明一个方法，而在另一个部分类中实现这个方法
+        + 部分方法不能使用 访问修饰符
+        ```C#
+        public partial class PartialClass
+        {
+            public void MethodOne()
+            {
+                PartialFunction();
+            }
+
+            partial void PartialFunction();
+        }
+        ```
+    11. 扩展方法
+        + 继承就是给对象添加功能的好方法，扩展方法就是给对象添加一功能的另一个选项，在不能继承时也可以使用这个选项
+        + 扩展方法是静态的，是类的一部分
+        + 使用**this**关键字和**第一个参数**来扩展字符串
+        + LINQ利用了许多扩张方法
+        ```C#
+        public static class StringExtension
+        {
+            public static int GetWordCount(this string s) => s.split().Length;
+        }
+        ```
+    12. Object类
+        + 其实所有类型都最终派生自System.Object
+        + `ToString()` : 对象的字符串表示
+        + `GetHashCode()` : Get HashCode
+        + `Equals()`, `ReferenceEquals()`
+        + `Finalize()` : 类似C++的析构函数，在对象被垃圾回收的时候调用。Object中的此方法实际什么都没做，会被GC忽略，如果对象有为托管的引用，就一般需要重写`Finalize()`
+        + `GetType()` ： 反射，得到对象的信息
+        + `MemberwiseClone()` : 浅拷贝

@@ -11,6 +11,14 @@ namespace ClassAndType
             PropertyFunction();
             // params 关键字
             ParamsFunction(1, 2, 3);
+            // readonly
+            ReadOnlyFunction();
+            // Struct
+            StructFunction();
+            // Enum
+            EnumFunction();
+            // 扩展方法
+            ExtensionFunction();
 
             ReadLine();
         }
@@ -37,5 +45,61 @@ namespace ClassAndType
                 WriteLine($"params item: {i}");
             }
         }
+
+        // readonly
+        public static void ReadOnlyFunction()
+        {
+            WriteLine("######################Readonly function Start#############################");
+            var readonlySample = new ReadOnlySample("Leo", "Dai");
+            //readonlySample.FirstName = "";
+
+            WriteLine(readonlySample.Id);
+            WriteLine(readonlySample.FullName);
+            WriteLine(ReadOnlySample.StartTime);
+            WriteLine(ReadOnlySample.DayOfWeek);
+        }
+
+        // Struct
+        public static void StructFunction()
+        {
+            WriteLine("######################Struct function Start#############################");
+            TestStruct testStruct;
+            //WriteLine($"Test Struct Width: {testStruct.Width}, Height:{testStruct.Height} ");
+
+            testStruct.Height = 10;
+            testStruct.Width = 20;
+            WriteLine($"Test Struct Width: {testStruct.Width}, Height:{testStruct.Height} ");
+
+            testStruct = new TestStruct();
+            TestClass testClass = new TestClass(10, 20);
+        }
+
+        // Enum
+        public static void EnumFunction()
+        {
+            WriteLine("######################Enum function Start#############################");
+            ColorEnum color = ColorEnum.Blue;
+
+            WriteLine($" Color Enum value: {(short)color}");
+            WriteLine($" Color Enum string: {color}");
+        }
+
+        // 部分类
+        public static void PartialFunction()
+        {
+            var partialClass = new PartialClass();
+
+            partialClass.MethodOne();
+        }
+
+        // 扩展方法
+        public static void ExtensionFunction()
+        {
+            WriteLine("######################Extension function Start#############################");
+
+            var str = "aaaaa";
+            WriteLine($"hello world! : {str.GetWordCount()}");
+        }
     }
+
 }
