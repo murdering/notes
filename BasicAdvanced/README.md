@@ -156,3 +156,14 @@
     5. `Finalize()` : 类似C++的析构函数，在对象被垃圾回收的时候调用。Object中的此方法实际什么都没做，会被GC忽略，如果对象有为托管的引用，就一般需要重写`Finalize()`
     6. `GetType()` ： 反射，得到对象的信息
     7. `MemberwiseClone()` : 浅拷贝
+## Inheritance
+* 一句话形容多态：通过继承实现的不同对象调用相同的方法，表现出不同的行为，称之为多态
+* 虚方法 `virtual`
+    1. 基类中声明为`virtual`，就可以在任何派生类中重写该方法，用`override`
+    2. 如果只是一行，C# 6中`virtual`可以用于lambda表达式
+    3. C#中，函数默认情况下不是虚拟的，但可以显式的声明为`virtual`(构造函数除外)。Java中所有函数都是虚拟的。
+    4. 如果签名相同的方法在基类和派生类中进行声明，但是没有用`virtual`和`override`，派生类会隐藏基类方法。而且子类应该使用new关键字来隐藏基类方法。
+    5. 密封方法的一个场景是：表明这个方法终止继承。
+* `public`,`protected`和`private`是逻辑访问修饰符。`internal`是一个物理访问修饰符，其边界是一个程序集。
+* [抽象类和接口的相同点和区别](https://www.cnblogs.com/chunhui212/p/5892273.html)
+* `is`和`as`不会抛出exception
