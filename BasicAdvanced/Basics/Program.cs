@@ -1,13 +1,18 @@
 ﻿#define Community
+
 using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using static System.Console; // C# 6 新特性
 
 namespace Basics
 {
-    class Program
+    internal class Program
     {
-        const int j = 20; // 隐式静态
-        static void Main(string[] args)
+        private const int j = 20; // 隐式静态
+        private const string specialCharator = @" ~!@#$%^&*()";
+
+        private static void Main(string[] args)
         {
             //int j = 10;
 
@@ -26,10 +31,17 @@ namespace Basics
             // PreProcess
             PreProcessFunction();
 
+            ///  输出英文一句话中最长的单词
+            /// Input: "fun&!! time"
+            /// Output: "time"
+            var str = getMaxString("I love dogs ahahahaha");
+            WriteLine(str);
+
             ReadLine();
         }
 
-        public static void StringFunction() {
+        public static void StringFunction()
+        {
             //String
 
             //@
@@ -63,13 +75,14 @@ namespace Basics
             WriteLine((int)time);
             WriteLine(time.ToString());
 
-            TimeOfDay time2 = (TimeOfDay)Enum.Parse(typeof(TimeOfDay), "evening", true); // 第三参数bool为是否忽略大小写 
+            TimeOfDay time2 = (TimeOfDay)Enum.Parse(typeof(TimeOfDay), "evening", true); // 第三参数bool为是否忽略大小写
             WriteLine(time2);
             WriteLine((int)time2);
             WriteLine(time2.ToString());
         }
 
-        public static void PreProcessFunction() {
+        public static void PreProcessFunction()
+        {
 #if Community
 #warning "You are getting one Community Wanring"
             WriteLine("this is for Community!");
@@ -78,10 +91,65 @@ namespace Basics
             WriteLine("this is for NORMAL!");
 #error "You are getting one Community Error"
 #endif
+        }
 
+        public static string getMaxString(string str)
+        {
+            var tempStr = string.Empty;
+            string pattern = @"[^A-Za-z]";
+            var strArray = Regex.Split(str, pattern);
+
+            foreach (var item in strArray)
+            {
+                if (item.Length > tempStr.Length)
+                {
+                    tempStr = item;
+                }
+            }
+
+            return tempStr;
+        }
+
+        public static string getMax2String(string str)
+        {
+            List<int> positionList = new List<int>();
+            List<string> stringList = new List<string>();
+            var tempStr = "";
+
+            //get char position in char array
+            var strArray = str.ToCharArray();
+            for (int i = 0; i < strArray.Length; i++)
+            {
+                var tempIndex = specialCharator.IndexOf(strArray[i]);
+                if (tempIndex > -1)
+                {
+                    positionList.Add(i);
+                }
+            }
+
+            // get string substring by position
+            var positionArray = positionList.ToArray();
+            for (int i = 0; i < positionArray.Length - 1; i++)
+            {
+                var item = str.Substring(positionArray[i], positionArray[i + 1] - positionArray[i]);
+                stringList.Add(item);
+            }
+
+            var lastIndex = positionArray[positionArray.Length - 1];
+            stringList.Add(str.Substring(lastIndex, str.Length - lastIndex));
+
+            // get max one
+            foreach (var item in stringList)
+            {
+                if (item.Length > tempStr.Length)
+                {
+                    tempStr = item;
+                }
+            }
+
+            return tempStr;
         }
     }
-
 
     public enum TimeOfDay
     {
