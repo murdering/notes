@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Generics
 {
-    public class DocumentManager<T>
+    public class DocumentManager<TDocument> where TDocument: IDocument
     {
-        private readonly Queue<T> documentQueue = new Queue<T>();
+        private readonly Queue<TDocument> documentQueue = new Queue<TDocument>();
 
-        public void AddDocument(T doc)
+        public void AddDocument(TDocument doc)
         {
             lock (this)
             {
@@ -18,9 +18,9 @@ namespace Generics
 
         public bool IsDocumentAvaliable => documentQueue.Count > 0;
 
-        public T GetDocument()
+        public TDocument GetDocument()
         {
-            T doc = default(T);
+            TDocument doc = default(TDocument);
 
             lock (this)
             {
@@ -28,6 +28,14 @@ namespace Generics
             }
 
             return doc;
+        }
+
+        public void DisplayAllDocument()
+        {
+            foreach(TDocument doc in documentQueue)
+            {
+                Console.WriteLine(doc.Title);
+            }
         }
     }
 }

@@ -213,5 +213,26 @@
     1. 默认值
         1. 因为泛型类型可能为值类型或者引用类型，不能把null赋予值类型，所以泛型的默认值用`default`关键字，将null赋予引用类型，0赋予值类型。
     2. 约束
+        1. `where` 关键字实现约束。
+           ```C#
+           public class DocumentManager<TDocument> where TDocument: IDcoument
+           {
+               //Implemetion
+           }
+           ```
+        2. 泛型还可以有多个约束`public class MyClass<T> where T: IFoo, new (){ //Implemetion }` (`new()`这个约束是约束T必须有一个构造函数)
     3. 继承
+        1. 派生类可以是泛型类或非泛型类
     4. 静态成员
+        1. 静态成员只能在一个实例中共享。
+           ```C#
+           public class StaticDemo<T>
+           {
+               public static int x;
+           }
+
+           StaticDemo<string>.x = 4;
+           StaticDemo<int>.x = 5;
+           WriteLine(StaticDemo<string>.x);
+           // 4
+           ```

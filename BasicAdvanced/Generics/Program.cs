@@ -6,7 +6,18 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var dm = new DocumentManager<Document>();
+            dm.AddDocument(new Document { Title = "Leo Dai", Content = "Handsome!" });
+            dm.AddDocument(new Document { Title = "James Bonds", Content = "Very handsome!" });
+            dm.DisplayAllDocument();
+
+            while (dm.IsDocumentAvaliable)
+            {
+                Document doc = dm.GetDocument();
+                Console.WriteLine(doc.Content);
+            }
+
+            Console.ReadLine();
         }
     }
 }
