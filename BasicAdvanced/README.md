@@ -192,3 +192,26 @@
             // do your processing
         }
         ```
+## 泛型
+* 优点
+    1. 性能。`ArrayList`类是存储对象（引用类型），在`Add()`方法时是把一个对象作为参数，如果是值类型就有装箱操作。泛型`List<T>`T就定义了类型，就不会有装箱拆箱操作。
+    2. 类型安全。`ArrayList`类其实可以添加任意类型，如果`foreach`迭代操作，就可能出现类型转换错误。泛型`List<T>`最开始就定义了类型，如果添加了不同的类型，在编译的时候就会报错。
+    3. 命名约定。
+        1. 泛型类型用字母`T`作为前缀
+        2. 没有特殊要求，泛型类型允许用任意类型替代，且只是用了一个泛型类型，就用`T`作为泛型类型的名称
+            ```C#
+            public class List<T> {}
+            public class LinkedList<T> {}
+            ```
+        3. 如果泛型类型有特定要求，或者使用了两个或者多个泛型类型，就给描述性的名称
+            ```C#
+            public delegate void EventHandler<TEventArgs>(object sender, TEventArgs e);
+            public delegate TOutput Converter<TInput, TOutput>(TInput from);
+            public class SortedList<Tkey, TValue> {}
+            ```
+* 泛型类
+    1. 默认值
+        1. 因为泛型类型可能为值类型或者引用类型，不能把null赋予值类型，所以泛型的默认值用`default`关键字，将null赋予引用类型，0赋予值类型。
+    2. 约束
+    3. 继承
+    4. 静态成员
