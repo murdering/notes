@@ -207,7 +207,7 @@
             ```C#
             public delegate void EventHandler<TEventArgs>(object sender, TEventArgs e);
             public delegate TOutput Converter<TInput, TOutput>(TInput from);
-            public class SortedList<Tkey, TValue> {}
+            public class SortedList<TKey, TValue> {}
             ```
 * 泛型类
     1. 默认值
@@ -217,10 +217,10 @@
            ```C#
            public class DocumentManager<TDocument> where TDocument: IDcoument
            {
-               //Implemetion
+               //Implementation
            }
            ```
-        2. 泛型还可以有多个约束`public class MyClass<T> where T: IFoo, new (){ //Implemetion }` (`new()`这个约束是约束T必须有一个构造函数)
+        2. 泛型还可以有多个约束`public class MyClass<T> where T: IFoo, new (){ //Implementation }` (`new()`这个约束是约束T必须有一个构造函数)
     3. 继承
         1. 派生类可以是泛型类或非泛型类
     4. 静态成员
@@ -236,3 +236,44 @@
            WriteLine(StaticDemo<string>.x);
            // 4
            ```
+* 泛型接口的抗变与协边
+    1.  协变：将子对象到父对象的转换。泛型接口中用`out`关键字标注，意味着返回类型只能是`T`。.net中参数是协变的。
+    2.  抗变：将父对象到子对象的转换。泛型接口中用`in`关键字标注，意味着只能把泛型类型`T`用作其方法输入。
+    3.  [C#的抗变与协变](http://blog.sina.com.cn/s/blog_8edc71930101xd9m.html)
+* 泛型方法
+    1. 泛型方法可以再非泛型类中定义
+    2. 泛型方法可以像非泛型方法一样调用
+       ```C#
+       //泛型方法调用
+       int i = 4;
+       int j = 5;
+       Swap<int>(ref i, ref j);
+       //非泛型方法调用
+       int i = 4;
+       int j = 5;
+       Swap(ref i, ref j);
+       ```
+    3. 泛型方法也可以用`where`字句来限制，定义约束。
+       ```C#
+       public static decimal Accumulate<TAccount>(IEnumerable<TAccount> source) where TAccount: IAccount
+       {
+           // Implementation
+       }
+       ```
+    4. 带委托的泛型。
+       ```C#
+       //定义
+       public static T2 Accumulate<T1, T2>(IEnumberable<T1> source, Func<T1, T2, T2> action)
+       {
+           // Implementation
+           T2 sum = default(T2);
+           foreach(var account in source)
+           {
+               sum = action(account, sum);
+           }
+           return sum;
+       }
+       //调用
+       decimal amount = Algorithm.Accumulate<Account, decimal>(accounts, (item, sum) => sum += item.Balance);
+       ```
+    5. **方法是在编译期间定义的，而不是运行期间。**

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Generics
 {
-    public class DocumentManager<TDocument> where TDocument: IDocument
+    public class DocumentManager<TDocument> where TDocument : IDocument
     {
         private readonly Queue<TDocument> documentQueue = new Queue<TDocument>();
 
@@ -32,7 +32,7 @@ namespace Generics
 
         public void DisplayAllDocument()
         {
-            foreach(TDocument doc in documentQueue)
+            foreach (var doc in documentQueue)
             {
                 Console.WriteLine(doc.Title);
             }
