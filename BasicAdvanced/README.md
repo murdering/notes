@@ -277,3 +277,4 @@
        decimal amount = Algorithm.Accumulate<Account, decimal>(accounts, (item, sum) => sum += item.Balance);
        ```
     5. **方法是在编译期间定义的，而不是运行期间。**
+* [C#之Action和Func的用法](https://www.cnblogs.com/LipeiNet/p/4694225.html)
