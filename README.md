@@ -8,6 +8,9 @@
     * 为POJO增加业务逻辑的方法（比如单据审核、转帐……）之后，POJO就变成了Domain Model。
     * POJO还可以当作DTO使用。
 * [全面理解 ASP.NET Core 依赖注入](https://www.cnblogs.com/jesse2013/p/di-in-aspnetcore.html)
+* AOP
+    * [C#的AOP框架](https://www.cnblogs.com/kiba/p/9920691.html)
+    * [C# 中使用面向切面编程（AOP）中实践代码整洁](https://www.cnblogs.com/chenug/p/9848852.html)
 
 ## 代码质量管理
 * [sonarqube+sonar runner分析C#代码](https://www.cnblogs.com/luoqin520/p/6945304.html)

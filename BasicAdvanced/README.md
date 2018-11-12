@@ -278,3 +278,67 @@
        ```
     5. **方法是在编译期间定义的，而不是运行期间。**
 * [C#之Action和Func的用法](https://www.cnblogs.com/LipeiNet/p/4694225.html)
+
+## 数组
+* 数组是引用类型
+* 锯齿数组
+  ```C#
+  int[][] jagged = new int[3][];
+  jagged[0] = new int[2] {1, 2};
+  jagged[1] = new int[6] {3, 4, 5, 6, 7, 8};
+  jagged[2] = new int[3] {9, 10, 11};
+  ```
+* `Clone()`是创建浅表副本，值类型会赋值所有的值；引用类型不复制元素，只复制引用。
+* `Copy()`也是创建浅表副本。与`Clone()`的区别是：`Clone()`是创建一个新的数组，`Copy`是传入一个阶数相同且有足够元素的已有数组。
+* [`IComparable<T>`和`IComparer<T>`的区别](https://www.cnblogs.com/leemano/p/4926637.html)
+
+  | `IComparable` | `IComparer` |
+  | ------ | ------ |
+  | 用`CompareTo()` 比较 | 用`Compare()` 比较|
+  | class实现`IComparable`接口，class内部实现`CompareTo()`方法 |  一个独立的class来实现`IComparer`接口，并实现`Compare()`方法 |
+  | 调用比较方法不同 `Array.Sort(persons);` | `Array.Sort(persons, new PersonComparer(PersonTypeEnum.FirstName));` |
+  | 如果有新的成员比较，需要修改原类 | 一个独立类，不需要修改原类，可以在此独立类中扩展 |
+* `foreach`语句(以下是其实现的方式)
+  ```C#
+  // foreach语句
+  foreach(var p in persons)
+  {
+      WriteLine(p);
+  }
+  // 生成的IL代码
+  IEnumerator<Person> enumerator = persons.GetEnumerator();
+  while(enumerator.MoveNext())
+  {
+      Person p = enumerator.Current;
+      WriteLine(p);
+  }
+  ```
+* `yield`语句
+    * 集合迭代返回`yield return`。就是把迭代的每次`return`都返回回来，而不是只一次。
+    * `IEnumerator<T>`是`GetEnumerator()`使用的返回接口。其他自定义的方法使用`IEnumerable<T>`接口
+    * 实例
+      ```C#
+      public class HelloCollection
+      {
+        public IEnumerator<string> GetEnumerator()
+        {
+            yield return "hello";
+            yield return "world!";
+        }
+      }
+      // 自定义方法
+      public IEnumerable<string> Reverse()
+      {
+        for (int i = names.Length - 1; i >= 0; i--)
+        {
+            yield return names[i];
+        }
+      }
+      // hello worl调用
+      var helloCollection = new HelloCollection();
+
+      foreach (var item in helloCollection)
+      {
+         WriteLine(item);
+      }
+      ```
