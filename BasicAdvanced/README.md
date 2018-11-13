@@ -393,3 +393,23 @@
   ```C#
   public static Vector operator +(Vector left, Vector right) => new Vector(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
   ```
+* [C#中的Explicit和Implicit](https://www.cnblogs.com/lwqlun/p/8082405.html)
+    * Implicit关键字用于声明隐式的用户定义类型转换运算符。
+    * Explicit关键字声明必须通过转换来调用的用户定义的类型转换运算符。不同于隐式转换，显式转换运算符必须通过转换的方式来调用，如果缺少了显式的转换，在编译时就会产生错误。
+## 委托，Lambda表达式和事件
+* 委托是一种特殊类型的对象，其特殊性在于，我们以前定义的所有对象都包含数据，而委托包含的只是一个或者多个方法的地址。
+* 委托的类型安全性非常高，在定义它时，必须给出它的参数和返回类型。而C/C++只是一个指针，可以指向任何一个地址。
+* 定义一个委托其实是定义一个新的类，派生自`System.MulticastDelegate`。
+* 调用委托类的`Invoke()`和委托实例加`()`是完全相同的。
+  ```C#
+  firstStringMethod();
+  firstStringMethod.Invoke();
+  ```
+* 为减少输入量，在需要委托实例的每个位置可以只传入地址的名称，这称为委托推断。以下初始化是相同的作用。
+  ```C#
+  // new 委托实例
+  GetAString firstStringMethod = new GetString(x.ToString);
+  // 委托推断
+  GetAString firstStringMethod = x.ToString;
+  ```
+* 
