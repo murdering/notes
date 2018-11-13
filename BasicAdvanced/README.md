@@ -342,3 +342,54 @@
          WriteLine(item);
       }
       ```
+## 运算符和类型强制转换
+* `checked`和`unchecked`
+    * `checked`会做溢出检查，如果溢出就抛出`OverflowException`。
+    * `unchecked`不会做溢出检查，如果溢出就会，溢出的位就会丢弃，不会抛异常。
+    * `unchecked`是默认行为。只有需要在有`checked`标记的大段代码中执行不检查一部分代码，才需要显式的用`unchecked`关键字。
+    * `checked`会影响性能。
+* `nameof`运算符是C#6新引入。改运算符接收一个符号，属性或方法，并返回名称。
+* 可空类型
+    * 使用关键字`?`类型声明是，例如`int?`，编译器会解析它，以使用泛型类型`Nullable<int>`。
+    * 在比较可空类型是，只要一个参数是`null`，比较结果就是false。
+    ```C#
+    int? a = null;
+    int? b = -5;
+    if(a >= b)
+    {
+        WriteLine("a >= b");
+    }
+    else
+    {
+        WriteLine("a < b");
+    }
+    // 总是执行else语句
+    ```
+* `??`合并运算符
+    * 如果第一个操作数不是`null`，整个表达式就等于第一个操作数的值；
+    * 如果第一个操作数是`null`，整个表达式就等于第一个操作数的值；
+* 空值传播运算符，C# 6的一个杰出新功能
+    * 使用空值传播运算符来访问FirstName属性(`p.FirstName`)，当`p`为空时，返回`null`，而不执行表达式右侧。
+      ```C#
+      public void ShowPerson(person p)
+      {
+          string firstName = p?.FirstName;
+      }
+      ```
+    * 访问数组的第一元素，如果是`null`，空合并运算符返回`x1`的值。
+      ```C#
+      int x1 = arr?[0] ?? 0;
+      ```
+* 类型转换
+    * 只能从较小的整数类型隐式转换为较大的整数类型
+    * 可空类型不能隐式转换为非可空类型
+    * 显式转换有丢失数据的风险`int b = (int)a;`
+    * 显式转换也有限制，在值类型转换时只能在数字，`char`类型和`enum`类型之间转换。不能直接把布尔型转换为其他类型，也不能把别的类型转换为布尔型。
+* 比较对象的相等性
+    * `ReferenceEquals()`用于比较引用，是个静态方法，传入两个引用对象。
+    * `Equals()`用于比较值，其实每个类型都有这个虚方法，可以重写它。
+    * `==`是个中间选项
+* 运算符重载
+  ```C#
+  public static Vector operator +(Vector left, Vector right) => new Vector(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
+  ```
