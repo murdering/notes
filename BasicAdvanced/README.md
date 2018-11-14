@@ -397,19 +397,71 @@
     * Implicit关键字用于声明隐式的用户定义类型转换运算符。
     * Explicit关键字声明必须通过转换来调用的用户定义的类型转换运算符。不同于隐式转换，显式转换运算符必须通过转换的方式来调用，如果缺少了显式的转换，在编译时就会产生错误。
 ## 委托，Lambda表达式和事件
-* 委托是一种特殊类型的对象，其特殊性在于，我们以前定义的所有对象都包含数据，而委托包含的只是一个或者多个方法的地址。
-* 委托的类型安全性非常高，在定义它时，必须给出它的参数和返回类型。而C/C++只是一个指针，可以指向任何一个地址。
-* 定义一个委托其实是定义一个新的类，派生自`System.MulticastDelegate`。
-* 调用委托类的`Invoke()`和委托实例加`()`是完全相同的。
-  ```C#
-  firstStringMethod();
-  firstStringMethod.Invoke();
-  ```
-* 为减少输入量，在需要委托实例的每个位置可以只传入地址的名称，这称为委托推断。以下初始化是相同的作用。
-  ```C#
-  // new 委托实例
-  GetAString firstStringMethod = new GetString(x.ToString);
-  // 委托推断
-  GetAString firstStringMethod = x.ToString;
-  ```
-* 
+* 委托
+    * 委托是一种特殊类型的对象，其特殊性在于，我们以前定义的所有对象都包含数据，而委托包含的只是一个或者多个方法的地址。
+    * 委托的类型安全性非常高，在定义它时，必须给出它的参数和返回类型。而C/C++只是一个指针，可以指向任何一个地址。
+    * 定义一个委托其实是定义一个新的类，派生自`System.MulticastDelegate`。
+    * 调用委托类的`Invoke()`和委托实例加`()`是完全相同的。
+      ```C#
+      firstStringMethod();
+      firstStringMethod.Invoke();
+      ```
+    * 为减少输入量，在需要委托实例的每个位置可以只传入地址的名称，这称为委托推断。以下初始化是相同的作用。
+      ```C#
+      // new 委托实例
+      GetAString firstStringMethod = new GetString(x.ToString);
+      // 委托推断
+      GetAString firstStringMethod = x.ToString;
+      ```
+    * `Action<T>`是没有返回的泛型委托，`Func<T>`是有返回值的泛型委托。它们都是最多可接受16种不同的参数。
+      ```C#
+      Func<double, double>[] operations = { MathOperations.MultiplyByTwo, MathOperations.Square}
+      // 使用Func在以下方法中
+      static void ProcessAndDisplayNumber(Func<double, double> action, double value)
+      {
+          double result = action(value);
+          WriteLine(result);
+      }
+      ```
+    * 多播委托就是一个委托包含多个方法，按照顺序连续调用。返回必须是`void`，否则只能得到委托调用的最后一个方法的结果。
+      ```C#
+      Action<double> operations = MathOperations.MultiplyByTwo;
+      operations += MathOperations.Square;
+      ```
+    * 可以使用`GetInvocationList()`得到`Delegate`对象数据组。
+      ```C#
+      Action dl = One;
+      dl += Two;
+      Delegate[] delegates = dl.GetInvocationList();
+      ```
+    * 匿名方法。C# 2中引入，但是在C# 3.0后用lambda替代了。了解就行。
+      ```C#
+      Func<string, string> anonDel = delegate(string param){
+          param += "string subfix";
+      }
+      ```
+* **lambda**表达式
+    * 单条代码。在方法内部需要花括号和`return`语句，因为编译器会添加一条默认的`return`语句。
+      ```C#
+      Func<double, double> square = x => x * x;
+      // 等同于
+      Func<double, double> square = x => { return x * x};
+      ```
+    * 多条代码就必须添加花括号和`return`了。
+      ```C#
+      Func<string, string> lambda = param => {
+          param += mid;
+          param += " and this was added to the string.";
+          return param;
+      }
+      ```
+    * 闭包。通过**lambda**表达式可以访问**lambda**表达式外部的变量。
+        * 实现方式：是因为每个**lambda**表达式都会创建一个匿名类，编译器会创建一个构造函数来传递外部变量。
+    * **lambda**可以用于类型为委托的任意地方。
+* 事件
+    * C/S应用事件，比如button事件
+    * 用`event`关键字定义`EventHandler<TEvents>(object sender, TEventArgs e)`泛型。最新的lib，都已没有`where TEventArgs: EventArgs`约束。
+      ```C#
+      public event EventHandler<CarInfoEventArgs> NewCarInfo;
+      ```
+    * 参照代码sample

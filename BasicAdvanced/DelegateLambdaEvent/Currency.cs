@@ -6,18 +6,41 @@ namespace DelegateLambdaEvent
 {
     public struct Currency
     {
-        private readonly uint Dollars;
-        private readonly ushort Cents;
+        private readonly uint _Dollars;
+        private readonly ushort _Cents;
+        private readonly string _CurrenctStr;
 
         public Currency(uint dollars, ushort cents)
         {
-            Dollars = dollars;
-            Cents = cents;
+            _Dollars = dollars;
+            _Cents = cents;
+            _CurrenctStr = string.Empty;
         }
 
-        public override string ToString() => $"${Dollars}.{Cents,2:00}";
+        public Currency(uint dollars, ushort cents, string currencyStr)
+        {
+            _Dollars = dollars;
+            _Cents = cents;
+            _CurrenctStr = currencyStr;
+        }
+
+        public override string ToString() => $"${_Dollars}.{_Cents,2:00}";
 
         public static string GetCurrency() => "Dollar";
+
+        public static void ShowCurrency(string countryName)
+        {
+            var cur = string.Empty;
+            if (countryName == "China")
+            {
+                cur = "RMB";
+            }
+            else
+            {
+                cur = "Dollar";
+            }
+            Console.WriteLine($"country: {countryName}, currency: {cur}");
+        }
 
         public static implicit operator Currency(float value)
         {
@@ -29,6 +52,6 @@ namespace DelegateLambdaEvent
             }
         }
 
-        public static implicit operator uint(Currency value) => value.Dollars;
+        public static implicit operator uint(Currency value) => value._Dollars;
     }
 }
