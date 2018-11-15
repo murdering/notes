@@ -514,5 +514,5 @@
     * 是一种专门用于字符串处理的语言。
     * C# 名称空间: `System.Text.RegularExpression.RegEx`(更简单是调用其静态方法`Regex()`)
     * `pattern`字符串前用`@`。`const string pattern = @"\bn"`
-    * ![主要的特定字符和转义序列]()
-    * ![主要的特定字符和转义序列补充]()
+    * ![主要的特定字符和转义序列](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/RegularExpression1.png)
+    * ![主要的特定字符和转义序列补充](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/RegularExpression2.png)
