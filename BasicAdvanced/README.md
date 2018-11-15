@@ -465,3 +465,54 @@
       public event EventHandler<CarInfoEventArgs> NewCarInfo;
       ```
     * 参照代码sample
+## 字符串和正则表达式
+* `System.String`类
+    * 是一个不可变的数据类型。一旦初始化，修改字符串或者运算符其实是新建一个字符串。
+    * 如果频繁修改字符串，使用`StringBuilder`。它指定了内存大小，修改字符串是在其内存块中修改。当超过最大值时，它的容量会翻倍。
+    * 如果不给`StringBuilder`设置初识容量，那该容量默认设置为16。
+      ```C#
+      var strBuilder = new StringBuilder("this is a string.", 150);
+      ```
+    * [NULL，""，String.Empty三者在C#中的区别](https://www.cnblogs.com/liuyaozhi/p/5809521.html)
+* 字符串格式
+    * 以下是相同的
+      ```C#
+      //$
+      string s1 = "World";
+      string s2 = $"Hello, {s1}";
+      //StringFormat
+      string s1 = "World";
+      string s2 = String.Format("Hello, {0}", s1);
+      ```
+    * 转义花括号
+      ```C#
+      string s = "Hello";
+      WriteLine($"{{s}} displays the value {s}");
+      // {s} displays the value Hello
+      ```
+    * 大写字母`D`表示长日期格式字符串，小写字母`d`表示短日期字符串
+      ```C#
+      var day = new DateTime(2025, 2, 14);
+      WriteLine($"{day:D}");
+      WriteLine($"{day:d}");
+      WriteLine($"{day:dd-MMM-yyyy}");
+      // Friday, February 14, 2025
+      // 2/14/2025
+      // 14-Feb-2025
+      ```
+    * `n`表示数字格式，`e`表示指数格式，`x`表示16进制，`c`表示货币
+      ```C#
+      WriteLine($"{ i:n} , {i:e}, {i:x}, {i:c}");
+      ```
+    * `#`格式说明符是一个数字站位符，如果数字可用，就显示数字；如果数字不可用，不显示数字。`0`格式说明符是一个零占位符，显示相应数字，如果数字不存在，就显示零。
+      ```C#
+      double d = 3.1415926;
+      WriteLine($"{d:###.###}");
+      WriteLine($"{d:000.000}");
+      ```
+* 正则表达式
+    * 是一种专门用于字符串处理的语言。
+    * C# 名称空间: `System.Text.RegularExpression.RegEx`(更简单是调用其静态方法`Regex()`)
+    * `pattern`字符串前用`@`。`const string pattern = @"\bn"`
+    * ![主要的特定字符和转义序列]()
+    * ![主要的特定字符和转义序列补充]()
