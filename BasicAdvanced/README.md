@@ -516,3 +516,68 @@
     * `pattern`字符串前用`@`。`const string pattern = @"\bn";`
     * ![主要的特定字符和转义序列](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/RegularExpression1.png)
     * ![主要的特定字符和转义序列补充](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/RegularExpression2.png)
+## 集合
+* 列表
+    * 泛型类`List<T>`实现了`IList`,`ICollection`,`IEnumerable`,`IList<T>`,`ICollection<T>`,`IEnumerable<T>`。
+    * 如果使用默认构造函数创建一个空列表，那它的初始容量是4，添加到第5个是，会扩容到8。以后每次扩容都是原来的2倍。
+    * 以下是设置集合的容量
+      ```C#
+      List<int> intList = new List<int>(10);
+      intList.Capacity = 20;
+      ```
+    * `intList.TrimExcess()`是去除不需要的容量，如果容量超过90%，就什么都不做。
+    * `Predicate<T>`是一个委托，返回一个布尔值。返回`true`表示有匹配的元素，而且找到了；`false`表示没有找到，继续搜索。
+      ```C#
+      public int FindIndex(Predicate<T> math);
+      // Predicate<T>等同于下
+      public delegate bool Predicate<T>(T obj);
+      ```
+    * `Find()`，`FindIndex()`，`FindAll()`需要使用`Predicate<T>`类型参数，一般是用lambda。
+    * 排序。和数组一样可以是实现`IComparable`和`IComparer`。此外还可以是用`Comparison<T>`委托。`Reverse()`同理可用。
+      ```C#
+      //Comparison<T>委托定义
+      public void List<T>.Sort(Comparison<T>);
+      //调用
+      racers.Sort((r1,r2) => 2.Wins.CompareTo(r1.Wins));
+      ```
+* 队列`Queue<T>`
+    * 先进先出。
+    * 没有`Add()`,`Remove()`方法。只有用`Enqueue()`和`Dequeue()`来放在队尾和头部获取。
+    * `Peek()`。从队列头部读取元素，但不删除。
+* 栈`Stack<T>`
+    * 后进先出。
+    * 和`Queue<T>`类似，没有`Add()`,`Remove()`方法。只有用`Push()`和`Pop()`来放在z栈顶和从栈顶获取。
+    * `Contains()`，确定某个元素是否在栈中。
+* 链表`LinkedList<T>`
+    * `LinkedList<T>`包含了`LinkedListNode<T>`类型的元素。`LinkedListNode`包含了上一个元素，下一个元素的信息。
+    * 方法有`AddAfter()`,`AddBefore()`,`AddFirst()`,`AddLast()`,`Remove`,`RemoveFirst()`,`RemoveLast()`和`Find()`。
+* 有序列表`SortedList<TKey, TValue>`
+    * 值和键都可以是任意类型。
+    * 需要传递实现了`IComparer<TKey>`接口的对象，该接口用于列表中的元素排序。
+    * 一个键只能对应一个值。
+    * 使用`foreach`语句时，用`KeyValuePair<TKey, TValue>`类型来接收返回的元素，如下。
+      ```C#
+      foreach(KeyValuePair<string, string>) book in books)
+      {
+          WriteLine($"{book.Key}, {book.Value}");
+      }
+      ```
+* 字典`Dictionary<TKey, TValue>`
+    * 键必须是有重写`GetHashCode()`方法。用`string`作为键非常方便和适用。
+* 有序字典`SortedDictionary<TKey, TValue>`
+    * 和有序列表`SortedList<TKey, TValue>`类似，键必须实现`IComparable<TKey>`接口。
+    * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
