@@ -538,7 +538,7 @@
       //Comparison<T>委托定义
       public void List<T>.Sort(Comparison<T>);
       //调用
-      racers.Sort((r1,r2) => 2.Wins.CompareTo(r1.Wins));
+      racers.Sort((r1,r2) => r2.Wins.CompareTo(r1.Wins));
       ```
 * 队列`Queue<T>`
     * 先进先出。
@@ -564,9 +564,26 @@
       ```
 * 字典`Dictionary<TKey, TValue>`
     * 键必须是有重写`GetHashCode()`方法。用`string`作为键非常方便和适用。
+* `Lookup`类
+    * 一个键对应多个值(一个集合)
+    * 不能像一般的字典一样`new`创建，而必须要调用`ToLookup()`方法。
+      ```C#
+      var lookupRacers = racers.ToLookup(r => r.Country);
+      foreach(Racer r in lookupRacers["Australia"])
+      {
+          WriteLine(r);
+      }
+      ```
 * 有序字典`SortedDictionary<TKey, TValue>`
     * 和有序列表`SortedList<TKey, TValue>`类似，键必须实现`IComparable<TKey>`接口。
-    * 
+    * `SortedList<TKey, TValue>`实现为一个基于数组的列表，而`SortedDictionary<TKey, TValue>`是基于散列字典的，有以下不同特征
+        * `SortedList<TKey, TValue>`使用的内存比`SortedDictionary<TKey, TValue>`少
+        * `SortedDictionary<TKey, TValue>`的元素插入和删除比较快
+        * 已排好序的数据填充集合时，若不修改容量，`SortedList<TKey, TValue>`比较快
+* 集`HashSet<T>` `SortedSet<T>`
+    * `HashSet<T>`包含不重复元素的**无序列表**，`SortedSet<T>`包含不重复元素的**有序列表**
+* 集合性能
+    * ![集合性能](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/集合性能.png)
 
 
 

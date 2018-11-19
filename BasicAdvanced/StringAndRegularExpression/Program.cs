@@ -9,14 +9,14 @@ namespace StringAndRegularExpression
     {
         private static void Main(string[] args)
         {
-            //// String
-            //StringFunction();
-            //// StringBuilder
-            //StringBuilderFunction();
-            //// format
-            //FormatFunction();
-            ////自定义字符串格式
-            //PersonlizationFormatFunction();
+            // String
+            StringFunction();
+            // StringBuilder
+            StringBuilderFunction();
+            // format
+            FormatFunction();
+            //自定义字符串格式
+            PersonlizationFormatFunction();
             // 正则表达式
             RegularExpressionFunction();
             ReadLine();
