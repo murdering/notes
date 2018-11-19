@@ -584,7 +584,37 @@
     * `HashSet<T>`包含不重复元素的**无序列表**，`SortedSet<T>`包含不重复元素的**有序列表**
 * 集合性能
     * ![集合性能](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/集合性能.png)
-
+## 特殊的集合
+* 不变的集合
+    * 命名空间`System.Collections.Immutable`
+    * 多线程中使用，是不能改变的集合
+    * 非泛型类`ImmutableArray`的`Create`静态方法会返回泛型`ImmutableArray`结构。
+    * `ImmutableArray<T>`也有`Add()`,`Remove()`,`Replace()`方法，**但是它不是修改原有的结合，而是新建一个新的，然后返回**。
+      ```C#
+      //create
+      ImmutableArray<string> a1 = ImmutableArray.Create<string>();
+      //add
+      ImmutableArray<string> a2 = a1.Add("Leo").Add("HeiHeiHei");
+      ```
+    * 普通集合`List<T>`可以用`ToImmutableList()`扩展方法创建一个不变的集合。
+      ```C#
+      ImmutableList<Account> immutableAccounts = accounts.ToImmutableList();
+      ```
+    * 可以用`ToBuilder()`创建一个可以改变的集合。反之，`Builder`的`ToImmutable()`方法，是创建一个新的不可变集合。
+      ```C#
+      ImmutableList<Accounts>.Builder builder = immutableAccounts.ToBuilder();
+      for(int i = 0; i < builder.Count; i++)
+      {
+          Account a = builder[i];
+          if(a.Amount < 0)
+          {
+              builder.Remove(a);
+          }
+      }
+      ImmutableList<Account> overdrawnAccounts = builder.ToImmutable();
+      overdrawnAccounts.ForEach(a => WriteLine($"{a.Name} {a.Amount}"));
+      ```
+    * 所有正常的集合类型都有不可变的结合，都是在前面添加`Immutable`，操作方法都是一样的。
 
 
 
