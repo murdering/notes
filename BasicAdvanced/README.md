@@ -715,7 +715,7 @@
         WriteLine("Thank you! \n");
     }
   ```
-
+* 使用`throw`但不传递异常对象，会抛出当前异常。
 
 
 
