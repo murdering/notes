@@ -675,8 +675,46 @@
     ```C#
     var values = Enumerable.Range(1, 20).Select(n => n*3);
     ```
+## 错误和异常
+* 异常层次![异常层次](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/异常层次结构.png)
+* `System.Exception`属性。`Data`，`Message`，`HelpLink`和`InnerException`属性必须在抛出前填充。
+  
+  | 属性 | 说明 |
+  | ------ | ------ |
+  | Data | 这个属性可以给异常添加键/值语句，以提供关于异常的额外信息 |
+  | HelpLink | 连接到一个帮助文件，以提供关于该异常的更多信息 |
+  | InnerException | 如果异常是在`catch`块中跑出的，它就会包含把代码发送到`catch`块中的异常对象 |
+  | Message | 描述错误情况的文本 |
+  | Source | 导致异常的应用程序名或对象名 |
+  | StackTrace | 栈上方法调用的详细信息，它有助于跟踪跑出异常的方法 |
+* 异常过滤器。在`catch`条件后添加`when()`条件。
+  ```C#
+    try
+    {
+        string input = string.Empty;
+        WriteLine("pls input the error code.");
 
+        input = ReadLine();
 
+        if (string.IsNullOrEmpty(input)) break;
+
+        int errorcode = Convert.ToInt32(input);
+
+        throw new MyCustomException($"{input} MyCustomException") { ErrorCode = errorcode };
+    }
+    catch (MyCustomException ex) when (ex.ErrorCode == 405)
+    {
+        WriteLine($"MyCustomException is thrown, {ex.Message}");
+    }
+    catch (Exception ex)
+    {
+        WriteLine($"An exception was thrown, {ex.Message}");
+    }
+    finally
+    {
+        WriteLine("Thank you! \n");
+    }
+  ```
 
 
 
