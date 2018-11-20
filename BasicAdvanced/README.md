@@ -615,7 +615,66 @@
       overdrawnAccounts.ForEach(a => WriteLine($"{a.Name} {a.Amount}"));
       ```
     * 所有正常的集合类型都有不可变的结合，都是在前面添加`Immutable`，操作方法都是一样的。
-
+## LINQ
+* 延迟执行。因为使用`yield return`语句返回，所以在定义查询的时候，是不会执行的，而是在`foreach`语句中执行。或者在定义的时候用`ToList()`或者`ToArray()`马上返回遍历结果。但是结果可能有些许不一样。参照实例代码。
+* 筛选。
+    * 索引筛选。`Where()`方法的重载中，可以传递第二个参数--索引。如下：
+      ```C#
+      //形式以A开头，索引为偶数的赛车手
+      var racers = Formular1.GetChampions().Where((r, index) => r.LastName.StartWith("A") && index %2 != 0);
+      ```
+    * 类型筛选。使用`OfType()`扩展方法，把类型传递到泛型参数。
+      ```C#
+      object[] data = {"one", 2, 3, "four", "five", 6};
+      var query = data.ofType<string>();
+      ```
+* 排序。以下同义。
+    ```C#
+    // 1. 查询结果
+    var racers = (from r in Formular1.GetChampions()
+                    order by r.Country, r.LastName, r.FirstName
+                    select r).Take(10);
+    // 2. 扩展方法
+    var racers = Formular1.GetChampions().OrderBy(r => r.Country)
+                        .ThenBy(r => r.LastName)
+                        .ThenBy(r => r.FirstName)
+                        .Take(10);
+    ```
+* 分组。
+    ```C#
+    var countries = Formular1.GetChampions().GroupBy(r => r.Country)
+                        .OrderByDescending(g => g.Count())
+                        .TheBy(g => g.Key)
+                        .Where(g => g.Count() >= 2)
+                        .Select(g => new {
+                            Country = g.Key,
+                            Count = g.Count()
+                        });
+    ```
+* 分区。`Take()`和`Skip()`。用于分页。
+    ```C#
+    int pageSize = 5;
+    var racers = Formular1.GetChampions().OrderBy(r => r.Country)
+                        .ThenBy(r => r.LastName)
+                        .ThenBy(r => r.FirstName)
+                        .Skip(pageNum * pageSize)
+                        .Take(pageSize);
+    ```
+* **LINQ**中的变量使用。使用`let`来声明变量。
+    ```C#
+    var query = from r in Formular1.GetChampions()
+                    let numberYears = r.Years.Count()
+                    where numberYears >= 3
+                    orderby numberYears descending, r.LastName
+                    select new {
+                        Name = r.FirstName + " " + r.LastName,
+                        TimesChampion = numberYears
+                    };
+    ```
+* `Range()`, `Empty()`和`Repeat`。`Empty()`是用于需要一个集合的参数，参数传值是空。
+    ```C#
+    var values = Enumerable.Range(1, 20).Select(n => n*3);
+    ```
 
 
 
