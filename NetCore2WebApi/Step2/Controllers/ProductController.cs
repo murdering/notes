@@ -18,7 +18,7 @@ namespace Step2.Controllers
             return Ok(ProductService.Current.Products);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetProduct")]
         public IActionResult GetProduct(int id)
         {
             var product = ProductService.Current.Products?.SingleOrDefault(x => x.Id == id);
@@ -49,7 +49,8 @@ namespace Step2.Controllers
 
             ProductService.Current.Products.Add(newProduct);
 
-            return CreatedAtAction("GetProduct", new { id = newProduct.Id }, newProduct);
+            return CreatedAtRoute("GetProduct", new { id = newProduct.Id }, newProduct);
+            //return CreatedAtAction("GetProduct", new { id = newProduct.Id }, newProduct);
             //return Ok();
         }
 
