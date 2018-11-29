@@ -31,6 +31,7 @@ namespace NetCore2WebApi.Controllers
             return Ok(product);
         }
 
+        // Materials 方法
         [HttpGet("{productId}/materials")]
         public IActionResult GetMaterials(int productId)
         {
