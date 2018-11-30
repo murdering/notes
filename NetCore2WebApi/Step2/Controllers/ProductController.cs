@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Step2.Dto;
 using Step2.Services;
@@ -39,6 +40,17 @@ namespace Step2.Controllers
                 return BadRequest();
             }
 
+            //简单自定义验证
+            if (product.Name == "测试")
+            {
+                ModelState.AddModelError("Name", "产品名称不能是'测试'");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var maxId = ProductService.Current.Products.Max(i => i.Id);
             var newProduct = new Product
             {
@@ -54,7 +66,104 @@ namespace Step2.Controllers
             //return Ok();
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] ProductModification product)
+        {
+            if (product == null)
+            {
+                return BadRequest();
+            }
+
+            //简单自定义验证
+            if (product.Name == "测试")
+            {
+                ModelState.AddModelError("Name", "产品名称不能是'测试'");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var model = ProductService.Current.Products.SingleOrDefault(x => x.Id == id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            model.Name = product.Name;
+            model.Price = product.Price;
+            model.Description = product.Description;
+
+            return Ok(model);
+            //return NoContent();
+        }
+
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, [FromBody] JsonPatchDocument<ProductModification> patchDoc)
+        {
+            if (patchDoc == null)
+            {
+                return BadRequest();
+            }
+
+            var model = ProductService.Current.Products.SingleOrDefault(i => i.Id == id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            var toPatch = new ProductModification
+            {
+                Name = model.Name,
+                Price = model.Price,
+                Description = model.Description
+            };
+
+            patchDoc.ApplyTo(toPatch, ModelState);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            //简单自定义验证
+            if (toPatch.Name == "测试")
+            {
+                ModelState.AddModelError("Name", "产品名称不能是'测试'");
+            }
+
+            TryValidateModel(toPatch);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            model.Name = toPatch.Name;
+            model.Price = toPatch.Price;
+            model.Description = toPatch.Description;
+
+            return Ok(model);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var model = ProductService.Current.Products.SingleOrDefault(i => i.Id == id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            ProductService.Current.Products.Remove(model);
+
+            return NoContent();
+        }
+
         // Materials 方法
+
+        #region Materials 方法
+
         [HttpGet("{productId}/materials")]
         public IActionResult GetMaterials(int productId)
         {
@@ -84,5 +193,7 @@ namespace Step2.Controllers
 
             return Ok(material);
         }
+
+        #endregion Materials 方法
     }
 }

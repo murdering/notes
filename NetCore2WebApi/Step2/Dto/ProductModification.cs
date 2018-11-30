@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Step2.Dto
 {
-    public class ProductCreation
+    public class ProductModification
     {
         [Display(Name = "产品名称")]
         [Required(ErrorMessage = "{0}是必填项")]

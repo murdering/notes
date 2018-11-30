@@ -20,6 +20,7 @@ namespace Step2.Services
                     Id = 1,
                     Name = "Milk",
                     Price = 3f,
+                    Description = "This is milk",
                     Materials = new List<Material>
                     {
                         new Material
@@ -39,6 +40,7 @@ namespace Step2.Services
                     Id = 2,
                     Name = "Bread",
                     Price = 5f,
+                    Description = "This is bread",
                     Materials = new List<Material>
                     {
                         new Material
@@ -58,6 +60,7 @@ namespace Step2.Services
                     Id = 3,
                     Name = "Beer",
                     Price = 7.5f,
+                    Description = "This is beer",
                     Materials = new List<Material>
                     {
                         new Material
