@@ -38,6 +38,12 @@
 * 一句话总结
 > HTTPS要使客户端与服务器端的通信过程得到安全保证，必须使用的对称加密算法，但是协商对称加密算法的过程，需要使用非对称加密算法来保证安全，然而直接使用非对称加密的过程本身也不安全，会有中间人篡改公钥的可能性，所以客户端与服务器不直接使用公钥，而是使用数字证书签发机构颁发的证书来保证非对称加密过程本身的安全。这样通过这些机制协商出一个对称加密算法，就此双方使用该算法进行加密解密。从而解决了客户端与服务器端之间的通信安全问题。
 
+## Git
+* [Git最佳事件](http://www.cnblogs.com/wish123/p/9785101.html)
+
+## 开源协议
+* [开源协议选择](https://coderxing.gitbooks.io/architecture-evolution/chapter1/di-yi-zhang-ff1a-zhun-bei-qi-cheng/12-guan-yu-kai-yuan/123-kai-yuan-xie-yi-de-xuan-ze.html)
+
 ## Markdown
 * [Markdown基本语法](https://www.jianshu.com/p/191d1e21f7ed)
 
