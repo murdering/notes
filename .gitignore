@@ -16,3 +16,10 @@ BasicAdvanced/StringAndRegularExpression/obj/
 /DesignPatterns/DirectX.DesignPatterns.Factory/bin
 /DesignPatterns/DirectX.DesignPatterns.Factory/obj
 /DesignPatterns/.vs
+/AspNetCore.HealthChecks.WithUriAndUI.Samples/Products.Api/obj/Debug/netcoreapp2.2
+v15
+/AspNetCore.HealthChecks.WithUriAndUI.Samples/AspNetCore.HealthChecks.WithUriAndUI.Samples.sln.DotSettings.user
+netcoreapp2.2
+obj
+/AspNetCore.HealthChecks.WithUriAndUI.Samples/HealthCheckSample/healthchecksdb
+/AspNetCore.HealthChecks.WithUriAndUI.Samples/.vs/config

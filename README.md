@@ -19,7 +19,7 @@
 
 ## Database
 * [MySQL、MongoDB、Redis 数据库之间的区别](https://blog.csdn.net/CatStarXcode/article/details/79513425?utm_source=blogxgwz1)
-* [『浅入浅出』MySQL 和 InnoDB(一篇足以)](https://draveness.me/mysql-innodb)
+* [『浅入浅出』MySQL 和 InnoDB(一篇足矣)](https://draveness.me/mysql-innodb)
 * [事务的4种隔离级别](https://blog.csdn.net/qq_33290787/article/details/51924963)
 > 1. RAED UNCOMMITED：使用查询语句不会加锁，可能会读到未提交的行（Dirty Read）；
 > 2. READ COMMITED：只对记录加记录锁，而不会在记录之间加间隙锁，所以允许新的记录插入到被锁定记录的附近，所以再多次使用查询语句时，可能得到不同的结果（Non-Repeatable Read）；
