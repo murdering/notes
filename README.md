@@ -13,10 +13,6 @@
     * [C# 中使用面向切面编程（AOP）中实践代码整洁](https://www.cnblogs.com/chenug/p/9848852.html)
 * [C# 8.0 新特性](https://www.cnblogs.com/Rwing/p/building-c-8-0.html)
 
-## 代码质量管理
-* [sonarqube+sonar runner分析C#代码](https://www.cnblogs.com/luoqin520/p/6945304.html)
-* [基于Win10极简SonarQube C#代码质量分析](https://www.cnblogs.com/CoderAyu/p/9416376.html)
-
 ## Database
 * [MySQL、MongoDB、Redis 数据库之间的区别](https://blog.csdn.net/CatStarXcode/article/details/79513425?utm_source=blogxgwz1)
 * [『浅入浅出』MySQL 和 InnoDB(一篇足矣)](https://draveness.me/mysql-innodb)
@@ -38,6 +34,40 @@
 * 一句话总结
 > HTTPS要使客户端与服务器端的通信过程得到安全保证，必须使用的对称加密算法，但是协商对称加密算法的过程，需要使用非对称加密算法来保证安全，然而直接使用非对称加密的过程本身也不安全，会有中间人篡改公钥的可能性，所以客户端与服务器不直接使用公钥，而是使用数字证书签发机构颁发的证书来保证非对称加密过程本身的安全。这样通过这些机制协商出一个对称加密算法，就此双方使用该算法进行加密解密。从而解决了客户端与服务器端之间的通信安全问题。
 
+## GraphQL
+* [30分钟理解GraphQL核心概念](https://segmentfault.com/a/1190000014131950?utm_source=tag-newest)
+* [RPC vs REST vs GraphQL](https://segmentfault.com/a/1190000013961872)
+> 如果是`Management API`，这类API的特点如下：
+> * 关注于对象与资源
+> * 会有多种不同的客户端
+> * 需要良好的可发现性和文档
+>
+> 这种情景使用`REST + JSON API`可能会更好。
+>
+> 如果是`Command or Action API`，这类API的特点如下：
+> * 面向动作或者指令
+> * 仅需要简单的交互
+>
+> 这种情况使用`RPC`就足够了。
+> 
+> 如果是`Internal Micro Services API`，这类API的特点如下：
+> * 消息密集型
+> * 对系统性能有较高要求
+>
+> 这种情景仍然建议使用`RPC`。
+>
+> 如果是`Micro Services API`，这类API的特点如下：
+> * 消息密集型
+> * 期望系统开销较低
+>
+> 这种情景使用`RPC`或者`REST`均可。
+>
+> 如果是`Data or Mobile API`，这类API的特点是：
+> * 数据类型是具有图状的特点
+> * 希望对于高延迟场景可以有更好的优化
+>
+> 这种场景无疑`GraphQL`是最好的选择。
+
 ## 设计模式的六大原则
 * [设计模式的六大原则](https://www.cnblogs.com/fengyumeng/p/10463048.html)
 > 1. 开闭原则：对扩展开放,对修改关闭，多使用抽象类和接口。
@@ -53,8 +83,14 @@
 
 ## 微服务
 * [微服务架构的理论基础 - 康威定律](https://yq.aliyun.com/articles/8611)
+
+## 服务监控
 * [.Net Core 服务健康检查](https://github.com/murdering/notes/tree/master/AspNetCore.HealthChecks.WithUriAndUI.Samples)
 * [Skywalking](https://github.com/murdering/notes/blob/master/Resources/Skywalking.md)
+
+## 代码质量管理
+* [sonarqube+sonar runner分析C#代码](https://www.cnblogs.com/luoqin520/p/6945304.html)
+* [基于Win10极简SonarQube C#代码质量分析](https://www.cnblogs.com/CoderAyu/p/9416376.html)
 
 ## 开源协议
 * [开源协议选择](https://coderxing.gitbooks.io/architecture-evolution/chapter1/di-yi-zhang-ff1a-zhun-bei-qi-cheng/12-guan-yu-kai-yuan/123-kai-yuan-xie-yi-de-xuan-ze.html)
