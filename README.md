@@ -54,6 +54,7 @@
 ## 微服务
 * [微服务架构的理论基础 - 康威定律](https://yq.aliyun.com/articles/8611)
 * [.Net Core 服务健康检查](https://github.com/murdering/notes/tree/master/AspNetCore.HealthChecks.WithUriAndUI.Samples)
+* [Skywalking](https://github.com/murdering/notes/blob/master/Resources/Skywalking.md)
 
 ## 开源协议
 * [开源协议选择](https://coderxing.gitbooks.io/architecture-evolution/chapter1/di-yi-zhang-ff1a-zhun-bei-qi-cheng/12-guan-yu-kai-yuan/123-kai-yuan-xie-yi-de-xuan-ze.html)
