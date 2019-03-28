@@ -23,3 +23,6 @@ netcoreapp2.2
 obj
 /AspNetCore.HealthChecks.WithUriAndUI.Samples/HealthCheckSample/healthchecksdb
 /AspNetCore.HealthChecks.WithUriAndUI.Samples/.vs/config
+/GraphQL/Chapter2/GraphQL.Samples.Chapter2/*.user
+/GraphQL/Chapter1/*.user
+/GraphQL/*.user

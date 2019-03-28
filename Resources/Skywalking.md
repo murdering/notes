@@ -14,7 +14,7 @@
 * [SkyAPM-dotnet Github](https://github.com/SkyAPM/SkyAPM-dotnet)：但是步骤不够详细
 * 环境变量不要"SKYWALKING__SERVICENAME"，在skyapm.json中会有名字，不然service中不会有记录
 * 服务返回500就会有请求失败
-![=](https://ww1.sinaimg.cn/large/007i4MEmgy1g0villshzej30n708wglz.jpg)
+![=](https://ww1.sinaimg.cn/large/007i4MEmgy1g1aihg3rv1j31ee0mhtbv.jpg)
 
 ## 配置回调，并发送邮件
 * [skywalking webhooks方法为post](https://my.oschina.net/u/3920392/blog/2998115)

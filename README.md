@@ -37,6 +37,7 @@
 ## GraphQL
 * [30分钟理解GraphQL核心概念](https://segmentfault.com/a/1190000014131950?utm_source=tag-newest)
 * [RPC vs REST vs GraphQL](https://segmentfault.com/a/1190000013961872)
+* [Asp.Net Core Samples](https://github.com/murdering/notes/tree/master/GraphQL)
 > 如果是`Management API`，这类API的特点如下：
 > * 关注于对象与资源
 > * 会有多种不同的客户端
