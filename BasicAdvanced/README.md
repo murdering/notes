@@ -735,7 +735,7 @@
       WriteLine("handled" + e.Message);
   }
   ```
-* `lock`关键字。`lock(this)`, 静态锁和非静态锁的区别（参照MultiThread例子）。  
+* `lock`关键字。`lock(this)`, 静态锁和非静态锁的区别（参照[MultiThread](https://github.com/murdering/notes/tree/master/BasicAdvanced/MultiThread)例子）。  
     1. `lock(this)`：是锁住当前整个实例，所有方法等待。
     2. `lock(object)`非静态锁：是锁住当前实例当前方法。
     4. `lock(staticObkect)`静态锁：是锁住所有实例的当前方法。
