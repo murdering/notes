@@ -735,6 +735,15 @@
       WriteLine("handled" + e.Message);
   }
   ```
+* `lock`关键字。`lock(this)`, 静态锁和非静态锁的区别（参照MultiThread例子）。  
+    1. `lock(this)`：是锁住当前整个实例，所有方法等待。
+    2. `lock(object)`非静态锁：是锁住当前实例当前方法。
+    4. `lock(staticObkect)`静态锁：是锁住所有实例的当前方法。
+
+    **Reference:**
+    * [C# 理解lock](https://www.cnblogs.com/gsk99/p/4964063.html)
+    * [C#多线程，静态锁static lock和非静态锁lock的区别](https://blog.csdn.net/yongwuxin/article/details/41222639)
+    * [C# Lock 关键字锁定静态变量和非静态变量的区别](https://blog.csdn.net/huijunma2010/article/details/53540606)
 * 更多例子参照实例代码。
 
 

@@ -19,15 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegateLambdaEvent", "Dele
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringAndRegularExpression", "StringAndRegularExpression\StringAndRegularExpression.csproj", "{B7DC5BEF-2B05-4A74-B811-F52E9414CBCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection", "Collection\Collection.csproj", "{879C8DD6-C6B1-48AF-82A1-AE5B4AB807FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collection", "Collection\Collection.csproj", "{879C8DD6-C6B1-48AF-82A1-AE5B4AB807FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialCollection", "SpecialCollection\SpecialCollection.csproj", "{853CD957-A221-40EA-A1C4-0C9BF8012C80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecialCollection", "SpecialCollection\SpecialCollection.csproj", "{853CD957-A221-40EA-A1C4-0C9BF8012C80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq", "Linq\Linq.csproj", "{D7A3F039-4F63-4FC0-A119-D547C6E69510}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq", "Linq\Linq.csproj", "{D7A3F039-4F63-4FC0-A119-D547C6E69510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception", "Exception\Exception.csproj", "{7010DE34-8F96-4A1C-93AB-1C1AF0398F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exception", "Exception\Exception.csproj", "{7010DE34-8F96-4A1C-93AB-1C1AF0398F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async", "Async\Async.csproj", "{078BA7AC-7B7F-4DBB-BDF2-02E84B83001D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Async", "Async\Async.csproj", "{078BA7AC-7B7F-4DBB-BDF2-02E84B83001D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThread", "MultiThread\MultiThread.csproj", "{E27235E8-4923-40B0-BDA9-C4C4F326A3E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{078BA7AC-7B7F-4DBB-BDF2-02E84B83001D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{078BA7AC-7B7F-4DBB-BDF2-02E84B83001D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078BA7AC-7B7F-4DBB-BDF2-02E84B83001D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27235E8-4923-40B0-BDA9-C4C4F326A3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27235E8-4923-40B0-BDA9-C4C4F326A3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27235E8-4923-40B0-BDA9-C4C4F326A3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27235E8-4923-40B0-BDA9-C4C4F326A3E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
