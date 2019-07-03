@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectX.DesignPatterns.Factory", "DirectX.DesignPatterns.Factory\DirectX.DesignPatterns.Factory.csproj", "{D5B38B4D-6AC0-4DCE-B372-FEF2C51C7004}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectX.DesignPatterns.Factory", "DirectX.DesignPatterns.Factory\DirectX.DesignPatterns.Factory.csproj", "{D5B38B4D-6AC0-4DCE-B372-FEF2C51C7004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectX.DesignPatterns.Builder", "DirectX.DesignPatterns.Builder\DirectX.DesignPatterns.Builder.csproj", "{2DE6A006-8FB6-446E-9D73-DA1EC3FBE25F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D5B38B4D-6AC0-4DCE-B372-FEF2C51C7004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5B38B4D-6AC0-4DCE-B372-FEF2C51C7004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5B38B4D-6AC0-4DCE-B372-FEF2C51C7004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DE6A006-8FB6-446E-9D73-DA1EC3FBE25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE6A006-8FB6-446E-9D73-DA1EC3FBE25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE6A006-8FB6-446E-9D73-DA1EC3FBE25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE6A006-8FB6-446E-9D73-DA1EC3FBE25F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
