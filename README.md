@@ -84,6 +84,7 @@
 
 ## 微服务
 * [微服务架构的理论基础 - 康威定律](https://yq.aliyun.com/articles/8611)
+* [分布式开放消息系统(RocketMQ)的原理与实践](https://www.jianshu.com/p/453c6e7ff81c)
 
 ## 服务监控
 * [.Net Core 服务健康检查](https://github.com/murdering/notes/tree/master/AspNetCore.HealthChecks.WithUriAndUI.Samples)
