@@ -26,3 +26,8 @@ obj
 /GraphQL/Chapter2/GraphQL.Samples.Chapter2/*.user
 /GraphQL/Chapter1/*.user
 /GraphQL/*.user
+/BasicAdvanced/ClassAndType/bin
+/BasicAdvanced/BasicAdvanced.sln.DotSettings.user
+/BasicAdvanced/Basics/bin
+/NetCore2WebApi/NetCore2WebApi/bin/Debug/netcoreapp2.1
+/NetCore2WebApi/NetCore2WebApi.sln.DotSettings.user

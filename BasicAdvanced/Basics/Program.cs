@@ -91,6 +91,12 @@ namespace Basics
             WriteLine("this is for NORMAL!");
 #error "You are getting one Community Error"
 #endif
+
+#if DEBUG
+            WriteLine("this is for Debug!");
+#elif REALEASE
+            WriteLine("this is for Release!");
+#endif
         }
 
         public static string getMaxString(string str)

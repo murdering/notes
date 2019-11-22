@@ -1,22 +1,29 @@
-﻿using System;
-using static System.Console;
+﻿using static System.Console;
 
 namespace ClassAndType
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // 属性
             PropertyFunction();
+
             // params 关键字
             ParamsFunction(1, 2, 3);
+            ParamsFunction2(null);
+            Math math = null;
+            ParamsFunction2(math);
+
             // readonly
             ReadOnlyFunction();
+
             // Struct
             StructFunction();
+
             // Enum
             EnumFunction();
+
             // 扩展方法
             ExtensionFunction();
 
@@ -43,6 +50,27 @@ namespace ClassAndType
             foreach (var i in array)
             {
                 WriteLine($"params item: {i}");
+            }
+        }
+
+        public static void ParamsFunction2(params Math[] array)
+        {
+            if (array == null)
+            {
+                WriteLine("maths is null");
+                return;
+            }
+
+            foreach (var math in array)
+            {
+                if (math == null)
+                {
+                    WriteLine("math is null");
+                }
+                else
+                {
+                    WriteLine("math is not null ");
+                }
             }
         }
 
@@ -101,5 +129,4 @@ namespace ClassAndType
             WriteLine($"hello world! : {str.GetWordCount()}");
         }
     }
-
 }
