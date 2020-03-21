@@ -27,7 +27,7 @@
 > 2. 悲观锁就是一种真正的锁了，它会在获取资源前对资源进行加锁，确保同一时刻只有有限的线程能够访问该资源，其他想要尝试获取资源的操作都会进入等待状态，直到该线程完成了对资源的操作并且释放了锁后，其他线程才能重新操作资源；
 > 3. 共享锁（读锁）：允许事务对一条行数据进行读取；
 > 4. 互斥锁（写锁）：允许事务对一条行数据进行删除或更新；
-* [mysql36条军规](https://github.com/murdering/notes/blob/master/Resources/mysql36%E6%9D%A1%E5%86%9B%E8%A7%84.pdf)
+* [Mysql30条军规](https://github.com/murdering/notes/blob/master/Resources/Mysql%e5%86%9b%e8%a7%84.md)
 
 ## Https
 * [https原理通俗了解](https://www.cnblogs.com/zhangshitong/p/6478721.html)
