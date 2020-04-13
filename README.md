@@ -84,6 +84,7 @@
 
 ## 微服务
 * [微服务架构的理论基础 - 康威定律](https://yq.aliyun.com/articles/8611)
+> 组织形式等同系统设计
 * [分布式开放消息系统(RocketMQ)的原理与实践](https://www.jianshu.com/p/453c6e7ff81c)
 * [一张图秒懂微服务网络架构(高可用)](https://www.cnblogs.com/yuesf/p/11831234.html)
 
