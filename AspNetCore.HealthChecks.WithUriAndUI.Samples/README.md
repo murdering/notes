@@ -16,7 +16,7 @@
 1. 监听端口为`6070`
 2. 在`notification`服务`appsetting.json`中配置邮件基本信息
 ![4](https://ww1.sinaimg.cn/large/007i4MEmgy1g17y9mqhxqj30ls065q3v.jpg)
-3. 收到邮件
+3. 收到邮件  
 ![5](https://ww1.sinaimg.cn/large/007i4MEmgy1g183btaihqj30cd042q2x.jpg)
 
 ## Reference
