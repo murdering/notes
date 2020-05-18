@@ -29,6 +29,9 @@
 > 4. 互斥锁（写锁）：允许事务对一条行数据进行删除或更新；
 * [Mysql30条军规](https://github.com/murdering/notes/blob/master/Resources/Mysql%e5%86%9b%e8%a7%84.md)
 
+## Kubernetes
+* [Kubernetes架构](https://github.com/murdering/notes/blob/master/Resources/Kubernetes%E6%9E%B6%E6%9E%84.md)
+
 ## Https
 * [https原理通俗了解](https://www.cnblogs.com/zhangshitong/p/6478721.html)
 * 一句话总结
