@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using static System.Console;
 
 namespace Collection
 {
     internal class Program
     {
-        private static Racer[] defaultRacers = {
+        private static readonly Racer[] defaultRacers = {
                 new Racer(1, "Leo", "Dai", "China", 100),
                 new Racer(5, "Lang", "Xu", "China", 90),
                 new Racer(4, "Alain", "Prost", "France", 40),
@@ -17,15 +17,22 @@ namespace Collection
         private static void Main(string[] args)
         {
             // list 排序
-            SortListFunction();
+            // SortListFunction();
+
             // Queue<T>
-            QueueFunction();
+            // QueueFunction();
+
             // Stack<T>
-            StackFunction();
+            // StackFunction();
+
             // 有序列表`SortedList<TKey, TValue>`
-            SortedListFunction();
+            // SortedListFunction();
+
             // Set
-            SetFunction();
+            // SetFunction();
+
+            // 遍历List并一边删除或添加
+            DynamicRemoveInListIterator();
 
             ReadLine();
         }
@@ -157,6 +164,37 @@ namespace Collection
             {
                 WriteLine(racer.ToString());
             }
+        }
+
+        /// <summary>
+        /// 遍历List并一边删除或添加
+        /// </summary>
+        public static void DynamicRemoveInListIterator()
+        {
+            int times = 0;
+            var tempRacers = defaultRacers.ToList();
+
+            WriteLine($"Before iteration(count {tempRacers.Count}):");
+            tempRacers.ForEach(e => WriteLine(e.ToString()));
+
+            for (var count = tempRacers.Count - 1; count >= 0; count--)
+            {
+                times++;
+                if (tempRacers[count].FirstName == "Nikki")
+                {
+                    tempRacers.Remove(tempRacers[count]);
+                }
+
+                if (tempRacers[count].FirstName == "Lang")
+                {
+                    tempRacers.Add(new Racer(1, "Lang1", "Dai", "China", 70));
+                    tempRacers.Add(new Racer(1, "Lang2", "Dai", "China", 71));
+                }
+            }
+
+            WriteLine($"After iteration(count {tempRacers.Count}):");
+            tempRacers.ForEach(e => WriteLine(e.ToString()));
+            WriteLine($"iteration times: [ {times} ]");
         }
     }
 }
