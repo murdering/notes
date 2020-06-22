@@ -29,6 +29,9 @@
 > 4. 互斥锁（写锁）：允许事务对一条行数据进行删除或更新；
 * [Mysql30条军规](https://github.com/murdering/notes/blob/master/Resources/Mysql%e5%86%9b%e8%a7%84.md)
 
+## Kubernetes
+* [Kubernetes架构](https://github.com/murdering/notes/blob/master/Resources/Kubernetes%E6%9E%B6%E6%9E%84.md)
+
 ## Https
 * [https原理通俗了解](https://www.cnblogs.com/zhangshitong/p/6478721.html)
 * 一句话总结
@@ -84,6 +87,11 @@
 
 ## 微服务
 * [微服务架构的理论基础 - 康威定律](https://yq.aliyun.com/articles/8611)
+> 通俗的说法就是：组织形式等同系统设计。
+> 1. 组织沟通方式会通过系统设计表达出来。
+> 2. 时间再多一件事情也不可能做的完美，但总有时间做完一件事情。
+> 3. 线型系统和线型组织架构间有潜在的异质同态特性。更直白的说，你想要什么样的系统，就搭建什么样的团队。
+> 4. 大的系统组织总是比小系统更倾向于分解。
 * [分布式开放消息系统(RocketMQ)的原理与实践](https://www.jianshu.com/p/453c6e7ff81c)
 * [一张图秒懂微服务网络架构(高可用)](https://www.cnblogs.com/yuesf/p/11831234.html)
 
