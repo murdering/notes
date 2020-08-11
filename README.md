@@ -82,6 +82,13 @@
 > 6. 合成复用原则：尽量使用合成/聚合,而不是使用继承。
 * [23种设计模式全解析](https://www.cnblogs.com/susanws/p/5510229.html)
 
+## 贫血模型 VS 充血模型
+[贫血模型 VS 充血模型比较](https://www.cnblogs.com/longshiyVip/p/5205451.html)
+> 贫血模型：是指领域对象里只有get和set方法，或者包含少量的CRUD方法，所有的业务逻辑都不包含在内而是放在Business Logic层。  
+> 充血模型：层次结构和上面的差不多，不过大多业务逻辑和持久化放在Domain Object里面，Business Logic（业务逻辑层）只是简单封装部分业务逻辑以及控制事务、权限等。
+
+
+
 ## Git
 * [Git最佳实践](http://www.cnblogs.com/wish123/p/9785101.html)
 
