@@ -14,6 +14,10 @@
 * [C# 8.0 新特性](https://www.cnblogs.com/Rwing/p/building-c-8-0.html)
 * [C# 9.0和.Net5.0新特性](https://www.cnblogs.com/powertoolsteam/p/dotnet5.html)
 
+## S·O·L·I·D
+* [程序员该有的艺术气质—SOLID原则](https://www.cnblogs.com/lanxuezaipiao/archive/2013/06/09/3128665.html)
+* [让姑姑不再划拳 码农也要有原则 ： SOLID via C#](https://www.cnblogs.com/xfuture/p/4169459.html)
+
 ## Database
 * [MySQL、MongoDB、Redis 数据库之间的区别](https://blog.csdn.net/CatStarXcode/article/details/79513425?utm_source=blogxgwz1)
 * [『浅入浅出』MySQL 和 InnoDB(一篇足矣)](https://draveness.me/mysql-innodb)
