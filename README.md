@@ -15,6 +15,11 @@
 * [C# 9.0和.Net5.0新特性](https://www.cnblogs.com/powertoolsteam/p/dotnet5.html)
 
 ## S·O·L·I·D
+> S：SRP, Single Responsibility Principle, 单一责任原则  
+> O：OCP, Open Closed Principle, 开发封闭原则  
+> L: LSP, Liskov Substitution Principle, 里氏替换原则  
+> I：ISP, Interface Segregation Principle, 接口分离原则  
+> D: DIP, Dependency Inversion Principle, 依赖倒置原则  
 * [程序员该有的艺术气质—SOLID原则](https://www.cnblogs.com/lanxuezaipiao/archive/2013/06/09/3128665.html)
 * [让姑姑不再划拳 码农也要有原则 ： SOLID via C#](https://www.cnblogs.com/xfuture/p/4169459.html)
 
