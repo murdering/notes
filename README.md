@@ -12,6 +12,7 @@
     * [C#的AOP框架](https://www.cnblogs.com/kiba/p/9920691.html)
     * [C# 中使用面向切面编程（AOP）中实践代码整洁](https://www.cnblogs.com/chenug/p/9848852.html)
 * [C# 8.0 新特性](https://www.cnblogs.com/Rwing/p/building-c-8-0.html)
+* [C# 9.0和.Net5.0新特性](https://www.cnblogs.com/powertoolsteam/p/dotnet5.html)
 
 ## Database
 * [MySQL、MongoDB、Redis 数据库之间的区别](https://blog.csdn.net/CatStarXcode/article/details/79513425?utm_source=blogxgwz1)
