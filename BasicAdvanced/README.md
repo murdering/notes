@@ -718,10 +718,10 @@
   ```
 * 使用`throw`但不传递异常对象，会抛出当前异常。
 ## 异步编程
-* .Net 2.0以前使用委托实现异步。
+* .Net 2.0以前使用委托实现异步。  
   ![.Net 2.0以前使用委托实现异步](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/.net1.0异步.png)
 * 基于事件的异步编程。
-    * `Async`方法调用完了后，会直接调用`Completed`事件。但是`Completed`委托必须实现在前。
+    * `Async`方法调用完了后，会直接调用`Completed`事件。但是`Completed`委托必须实现在前。  
   ![基于事件的异步编程](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/基于事件的异步编程.png)
 * `Task.WhenAll`是同时执行两个任务。
   ```C#
