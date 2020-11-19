@@ -14,15 +14,6 @@
 * [C# 8.0 新特性](https://www.cnblogs.com/Rwing/p/building-c-8-0.html)
 * [C# 9.0和.Net5.0新特性](https://www.cnblogs.com/powertoolsteam/p/dotnet5.html)
 
-## S·O·L·I·D
-> S：SRP, Single Responsibility Principle, 单一责任原则  
-> O：OCP, Open Closed Principle, 开发封闭原则  
-> L: LSP, Liskov Substitution Principle, 里氏替换原则  
-> I：ISP, Interface Segregation Principle, 接口分离原则  
-> D: DIP, Dependency Inversion Principle, 依赖倒置原则  
-* [程序员该有的艺术气质—SOLID原则](https://www.cnblogs.com/lanxuezaipiao/archive/2013/06/09/3128665.html)
-* [让姑姑不再划拳 码农也要有原则 ： SOLID via C#](https://www.cnblogs.com/xfuture/p/4169459.html)
-
 ## Database
 * [MySQL、MongoDB、Redis 数据库之间的区别](https://blog.csdn.net/CatStarXcode/article/details/79513425?utm_source=blogxgwz1)
 * [『浅入浅出』MySQL 和 InnoDB(一篇足矣)](https://draveness.me/mysql-innodb)
@@ -82,7 +73,7 @@
 >
 > 这种场景无疑`GraphQL`是最好的选择。
 
-## 设计模式的六大原则
+## 设计模式的六大原则(S·O·L·I·D)
 * [设计模式的六大原则](https://www.cnblogs.com/fengyumeng/p/10463048.html)
 > 1. 开闭原则：对扩展开放,对修改关闭，多使用抽象类和接口。
 > 2. 里氏替换原则：基类可以被子类替换，使用抽象类继承,不使用具体类继承。
@@ -90,6 +81,14 @@
 > 4. 接口隔离原则：使用多个隔离的接口,比使用单个接口好，建立最小的接口。
 > 5. 迪米特法则：一个软件实体应当尽可能少地与其他实体发生相互作用，通过中间类建立联系。
 > 6. 合成复用原则：尽量使用合成/聚合,而不是使用继承。
+
+> S：SRP, Single Responsibility Principle, 单一责任原则  
+> O：OCP, Open Closed Principle, 开发封闭原则  
+> L: LSP, Liskov Substitution Principle, 里氏替换原则  
+> I：ISP, Interface Segregation Principle, 接口分离原则  
+> D: DIP, Dependency Inversion Principle, 依赖倒置原则  
+* [程序员该有的艺术气质—SOLID原则](https://www.cnblogs.com/lanxuezaipiao/archive/2013/06/09/3128665.html)
+* [让姑姑不再划拳 码农也要有原则 ： SOLID via C#](https://www.cnblogs.com/xfuture/p/4169459.html)
 * [23种设计模式全解析](https://www.cnblogs.com/susanws/p/5510229.html)
 
 ## 贫血模型 VS 充血模型
