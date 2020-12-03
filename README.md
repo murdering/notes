@@ -111,6 +111,7 @@
 > 4. 大的系统组织总是比小系统更倾向于分解。
 * [分布式开放消息系统(RocketMQ)的原理与实践](https://www.cnblogs.com/HigginCui/p/9900148.html)
 * [一张图秒懂微服务网络架构(高可用)](https://www.cnblogs.com/yuesf/p/11831234.html)
+* [Base：一种 Acid 的替代方案](https://www.cnblogs.com/savorboard/p/base-an-acid-alternative.html)
 
 ## 服务监控
 * [.Net Core 服务健康检查](https://github.com/murdering/notes/tree/master/AspNetCore.HealthChecks.WithUriAndUI.Samples)
