@@ -237,7 +237,7 @@
            WriteLine(StaticDemo<string>.x);
            // 4
            ```
-* 泛型接口的抗变与协边
+* 泛型接口的抗变与协变
     1.  协变：将子对象到父对象的转换。泛型接口中用`out`关键字标注，意味着返回类型只能是`T`。.net中参数是协变的。
     2.  抗变：将父对象到子对象的转换。泛型接口中用`in`关键字标注，意味着只能把泛型类型`T`用作其方法输入。
     3.  [C#的抗变与协变](http://blog.sina.com.cn/s/blog_8edc71930101xd9m.html)
@@ -745,6 +745,7 @@
     * [C# 理解lock](https://www.cnblogs.com/gsk99/p/4964063.html)
     * [C#多线程，静态锁static lock和非静态锁lock的区别](https://blog.csdn.net/yongwuxin/article/details/41222639)
     * [C# Lock 关键字锁定静态变量和非静态变量的区别](https://blog.csdn.net/huijunma2010/article/details/53540606)
+    * [C#当中使用async和await](https://www.cnblogs.com/dcz2015/p/11004585.html)
 * 更多例子参照实例代码。
 
 
