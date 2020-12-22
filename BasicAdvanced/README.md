@@ -515,8 +515,8 @@
     * 是一种专门用于字符串处理的语言。
     * C# 名称空间: `System.Text.RegularExpression.RegEx`(更简单是调用其静态方法`Regex()`)
     * `pattern`字符串前用`@`。`const string pattern = @"\bn";`
-    * ![主要的特定字符和转义序列](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/RegularExpression1.png)
-    * ![主要的特定字符和转义序列补充](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/RegularExpression2.png)
+    * ![主要的特定字符和转义序列](https://raw.githubusercontent.com/murdering/notes/master/BasicAdvanced/Images/RegularExpression1.png)
+    * ![主要的特定字符和转义序列补充](https://raw.githubusercontent.com/murdering/notes/master/BasicAdvanced/Images/RegularExpression2.png)
 ## 集合
 * 列表
     * 泛型类`List<T>`实现了`IList`,`ICollection`,`IEnumerable`,`IList<T>`,`ICollection<T>`,`IEnumerable<T>`。
@@ -584,7 +584,7 @@
 * 集`HashSet<T>` `SortedSet<T>`
     * `HashSet<T>`包含不重复元素的**无序列表**，`SortedSet<T>`包含不重复元素的**有序列表**
 * 集合性能
-    * ![集合性能](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/集合性能.png)
+    * ![集合性能](https://raw.githubusercontent.com/murdering/notes/master/BasicAdvanced/Images/集合性能.png)
 ## 特殊的集合
 * 不变的集合
     * 命名空间`System.Collections.Immutable`
@@ -677,7 +677,7 @@
     var values = Enumerable.Range(1, 20).Select(n => n*3);
     ```
 ## 错误和异常
-* 异常层次![异常层次](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/异常层次结构.png)
+* 异常层次![异常层次](https://raw.githubusercontent.com/murdering/notes/master/BasicAdvanced/Images/异常层次结构.png)
 * `System.Exception`属性。`Data`，`Message`，`HelpLink`和`InnerException`属性必须在抛出前填充。
   
   | 属性 | 说明 |
@@ -719,10 +719,10 @@
 * 使用`throw`但不传递异常对象，会抛出当前异常。
 ## 异步编程
 * .Net 2.0以前使用委托实现异步。  
-  ![.Net 2.0以前使用委托实现异步](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/.net1.0异步.png)
+  ![.Net 2.0以前使用委托实现异步](https://raw.githubusercontent.com/murdering/notes/master/BasicAdvanced/Images/.net1.0异步.png)
 * 基于事件的异步编程。
     * `Async`方法调用完了后，会直接调用`Completed`事件。但是`Completed`委托必须实现在前。  
-  ![基于事件的异步编程](https://github.com/murdering/notes/blob/master/BasicAdvanced/Images/基于事件的异步编程.png)
+  ![基于事件的异步编程](https://raw.githubusercontent.com/murdering/notes/master/BasicAdvanced/Images/基于事件的异步编程.png)
 * `Task.WhenAll`是同时执行两个任务。
   ```C#
   try
