@@ -1,4 +1,6 @@
-﻿using Generics.GenericFunction;
+﻿using Generics.GenericClass;
+using Generics.GenericFunction;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using static System.Console;
@@ -9,12 +11,16 @@ namespace Generics
     {
         private static void Main(string[] args)
         {
+            /*
             // 泛型类
             GenericClassFunction();
             // 泛型方法
             GenericFunctionFunction();
+            */
+            GenericSimpleClass();
 
             ReadLine();
+
         }
 
         // 泛型类
@@ -47,6 +53,17 @@ namespace Generics
             WriteLine($"The balance is {balance}");
             WriteLine($"The generic balance is {balanceInGeneric}");
             WriteLine($"The generic delegate balance is {balanceInDelegate}");
+        }
+
+        public static void GenericSimpleClass()
+        {
+            var animal = new Duck { Skin = "Yellow"};
+            Print(animal);
+        }
+
+        private static void Print<T>(SimpleGeneric<T> simpleGeneric)
+        { 
+            WriteLine(JsonConvert.SerializeObject(simpleGeneric));
         }
     }
 }
