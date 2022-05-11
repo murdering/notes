@@ -158,7 +158,7 @@
     7. `MemberwiseClone()` : 浅拷贝
 ## Inheritance
 * 一句话形容多态：通过继承实现的不同对象调用相同的方法，表现出不同的行为，称之为多态
-* 虚方法 `virtual`
+* [虚方法 `virtual`](https://blog.csdn.net/songsz123/article/details/7369913#comments)
     1. 基类中声明为`virtual`，就可以在任何派生类中重写该方法，用`override`
     2. 如果只是一行，C# 6中`virtual`可以用于lambda表达式
     3. C#中，函数默认情况下不是虚拟的，但可以显式的声明为`virtual`(构造函数除外)。Java中所有函数都是虚拟的。
