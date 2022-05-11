@@ -279,6 +279,7 @@
        ```
     5. **方法是在编译期间定义的，而不是运行期间。**
 * [C#之Action和Func的用法](https://www.cnblogs.com/LipeiNet/p/4694225.html)
+* [C# 委托 Delegate、Action、Func、event](https://blog.csdn.net/weixin_43673589/article/details/117753797)
 
 ## 数组
 * 数组是引用类型
